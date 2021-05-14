@@ -1,0 +1,57 @@
+﻿@model IEnumerable<Computers_Sales_WebApplication.Models.ComputersClass>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<center>
+    <h2><a href="~/DisplayingComputerRecords.aspx">Display Computer Records</a></h2>
+
+    <p>
+        @using (Html.BeginForm("Index", "Computers", FormMethod.Get))
+        {
+
+            <input type="date" name="start"/>
+            <input type="date" name="end"/>
+            <input type="submit" value="Filter"/>
+        }
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Producent)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Model)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ReleaseDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Producent)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Model)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ReleaseDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+
+            </tr>
+        }
+
+    </table>
+</center>

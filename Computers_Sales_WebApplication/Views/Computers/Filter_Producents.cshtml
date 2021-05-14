@@ -1,0 +1,39 @@
+﻿@model IEnumerable<Computers_Sales_WebApplication.Models.ComputersClass>
+
+@{
+    ViewBag.Title = "Filter_Producents";
+}
+
+    <center>
+        <h2>Filter_Producents</h2>
+
+        <p>
+            @using (Html.BeginForm("Filter_Producents", "Computers", FormMethod.Get))
+            {
+
+                <input type="text" name="key"/>
+                <input type="number" name="from"/>
+                <input type="number" name="to"/>
+                <input type="submit" value="Filter"/>
+            }
+        </p>
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Producent)
+                </th>
+               
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Producent)
+                    </td>
+
+                </tr>
+            }
+
+        </table>
+    </center>

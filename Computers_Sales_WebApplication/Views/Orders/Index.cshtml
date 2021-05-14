@@ -1,0 +1,66 @@
+﻿@model IEnumerable<Computers_Sales_WebApplication.Models.OrdersModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Insert", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Order_ID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Order_Date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Computer_ID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Order_Value)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Discount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Amount)
+        </th>
+        <th>
+
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Order_ID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Order_Date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Computer_ID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Order_Value)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Discount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Amount)
+        </td>
+        <td>
+            <a href="@Url.Action("Edit","Orders",new {@id=item.Order_ID})">Update</a>
+            <a href="@Url.Action("Delete","Orders",new {@id=item.Order_ID})">Delete</a>
+
+        </td>
+
+    </tr>
+}
+
+</table>
